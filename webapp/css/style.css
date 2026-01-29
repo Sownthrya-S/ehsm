@@ -1,1 +1,12 @@
 /* Enter your custom styles here */
+.box-shadow {
+    box-shadow: 0 4px 12px 0 rgba(0,0,0,0.15);
+    background-color: #ffffff;
+    border-radius: 8px;
+    border: 1px solid #e5e5e5;
+}
+
+/* Ensure the background is light gray for contrast */
+.sapMPage {
+    background-color: #f7f9fa !important;
+}
