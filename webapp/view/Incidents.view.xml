@@ -1,0 +1,52 @@
+<mvc:View controllerName="ehsm.controller.Incidents"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Page title="Incident Management" showNavButton="true" navButtonPress="onNavBack">
+        <content>
+            <Table id="idIncidentTable" items="{/INCIDENTSet}" growing="true" growingThreshold="10">
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <Title text="Incidents" level="H2"/>
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column>
+                        <Text text="Incident ID" />
+                    </Column>
+                    <Column minScreenWidth="Tablet" demandPopin="true">
+                        <Text text="Plant" />
+                    </Column>
+                    <Column minScreenWidth="Tablet" demandPopin="true">
+                        <Text text="Description" />
+                    </Column>
+                    <Column minScreenWidth="Desktop" demandPopin="true">
+                        <Text text="Category" />
+                    </Column>
+                    <Column minScreenWidth="Desktop" demandPopin="true">
+                        <Text text="Priority" />
+                    </Column>
+                    <Column>
+                        <Text text="Status" />
+                    </Column>
+                    <Column minScreenWidth="Desktop" demandPopin="true">
+                        <Text text="Date" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{IncidentId}" />
+                            <Text text="{Plant}" />
+                            <Text text="{IncidentDescription}" />
+                            <Text text="{IncidentCategory}" />
+                            <ObjectStatus text="{IncidentPriority}" state="{path: 'IncidentPriority', formatter: '.formatPriority'}" />
+                            <ObjectStatus text="{IncidentStatus}" state="{path: 'IncidentStatus', formatter: '.formatStatus'}" />
+                            <Text text="{path: 'IncidentDate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'yyyy-MM-dd' }}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+    </Page>
+</mvc:View>

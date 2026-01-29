@@ -11,11 +11,13 @@ sap.ui.define([
         },
 
         onPressIncident: function () {
-            MessageToast.show("Navigate to Incident Management");
+            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            oRouter.navTo("RouteIncidents");
         },
 
         onPressRisk: function () {
-            MessageToast.show("Navigate to Risk Assessment");
+            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            oRouter.navTo("RouteRisks");
         }
     });
 });

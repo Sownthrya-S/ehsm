@@ -1,0 +1,52 @@
+<mvc:View controllerName="ehsm.controller.Risks"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Page title="Risk Assessment" showNavButton="true" navButtonPress="onNavBack">
+        <content>
+            <Table id="idRiskTable" items="{/RISKSet}" growing="true" growingThreshold="10">
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <Title text="Risks" level="H2"/>
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column>
+                        <Text text="Risk ID" />
+                    </Column>
+                    <Column minScreenWidth="Tablet" demandPopin="true">
+                        <Text text="Plant" />
+                    </Column>
+                    <Column minScreenWidth="Tablet" demandPopin="true">
+                        <Text text="Description" />
+                    </Column>
+                    <Column minScreenWidth="Desktop" demandPopin="true">
+                        <Text text="Category" />
+                    </Column>
+                    <Column minScreenWidth="Desktop" demandPopin="true">
+                        <Text text="Severity" />
+                    </Column>
+                    <Column minScreenWidth="Desktop" demandPopin="true">
+                        <Text text="Likelihood" />
+                    </Column>
+                    <Column>
+                        <Text text="Mitigation" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{RiskId}" />
+                            <Text text="{Plant}" />
+                            <Text text="{RiskDescription}" />
+                            <Text text="{RiskCategory}" />
+                            <ObjectStatus text="{RiskSeverity}" state="{path: 'RiskSeverity', formatter: '.formatSeverity'}" />
+                            <Text text="{Likelihood}" />
+                            <Text text="{MitigationMeasures}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+    </Page>
+</mvc:View>

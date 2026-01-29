@@ -102,6 +102,20 @@
           "target": [
             "TargetDashboard"
           ]
+        },
+        {
+          "name": "RouteIncidents",
+          "pattern": "incidents",
+          "target": [
+            "TargetIncidents"
+          ]
+        },
+        {
+          "name": "RouteRisks",
+          "pattern": "risks",
+          "target": [
+            "TargetRisks"
+          ]
         }
       ],
       "targets": {
@@ -112,6 +126,14 @@
         "TargetDashboard": {
           "id": "Dashboard",
           "name": "Dashboard"
+        },
+        "TargetIncidents": {
+          "id": "Incidents",
+          "name": "Incidents"
+        },
+        "TargetRisks": {
+          "id": "Risks",
+          "name": "Risks"
         }
       }
     },

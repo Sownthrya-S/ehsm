@@ -16,11 +16,16 @@ sap.ui.define([
 
             var oModel = this.getOwnerComponent().getModel();
             var sPath = "/LOGINSet(EmployeeId='" + sEmployeeId + "',Password='" + sPassword + "')";
-            
+
             var that = this;
             oModel.read(sPath, {
                 success: function (oData) {
                     if (oData.Status === "Success") {
+                        var oUserModel = new sap.ui.model.json.JSONModel({
+                            EmployeeId: sEmployeeId
+                        });
+                        that.getOwnerComponent().setModel(oUserModel, "user");
+
                         MessageToast.show("Login Successful");
                         var oRouter = sap.ui.core.UIComponent.getRouterFor(that);
                         oRouter.navTo("RouteDashboard");
