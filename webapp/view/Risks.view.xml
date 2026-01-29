@@ -32,6 +32,9 @@
                     <Column>
                         <Text text="Mitigation" />
                     </Column>
+                    <Column minScreenWidth="Desktop" demandPopin="true">
+                        <Text text="Date Identified" />
+                    </Column>
                 </columns>
                 <items>
                     <ColumnListItem>
@@ -43,6 +46,7 @@
                             <ObjectStatus text="{RiskSeverity}" state="{path: 'RiskSeverity', formatter: '.formatSeverity'}" />
                             <Text text="{Likelihood}" />
                             <Text text="{MitigationMeasures}" />
+                            <Text text="{path: 'RiskIdentificationDate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'yyyy-MM-dd' }}" />
                         </cells>
                     </ColumnListItem>
                 </items>
