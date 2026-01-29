@@ -21,13 +21,21 @@ sap.ui.define([
             }
 
             var sEmployeeId = oUserModel.getProperty("/EmployeeId");
-            var oTable = this.getView().byId("idRiskTable");
-            var oBinding = oTable.getBinding("items");
+            var oModel = this.getOwnerComponent().getModel();
 
-            if (oBinding) {
-                var oFilter = new Filter("EmployeeId", FilterOperator.EQ, sEmployeeId);
-                oBinding.filter([oFilter]);
-            }
+            this.getView().setBusy(true);
+            oModel.read("/RISKSet", {
+                filters: [new Filter("EmployeeId", FilterOperator.EQ, sEmployeeId)],
+                success: function (oData) {
+                    this.getView().setBusy(false);
+                    var oLocalModel = new sap.ui.model.json.JSONModel(oData.results);
+                    this.getView().setModel(oLocalModel, "riskModel");
+                }.bind(this),
+                error: function (oError) {
+                    this.getView().setBusy(false);
+                    sap.m.MessageToast.show("Failed to fetch risks");
+                }.bind(this)
+            });
         },
 
         onNavBack: function () {

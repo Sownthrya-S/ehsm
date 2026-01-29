@@ -4,7 +4,7 @@
     xmlns:core="sap.ui.core">
     <Page title="Risk Assessment" showNavButton="true" navButtonPress="onNavBack">
         <content>
-            <Table id="idRiskTable" items="{/RISKSet}" growing="true" growingThreshold="10">
+            <Table id="idRiskTable" items="{riskModel>/}" growing="true" growingThreshold="10">
                 <headerToolbar>
                     <OverflowToolbar>
                         <Title text="Risks" level="H2"/>

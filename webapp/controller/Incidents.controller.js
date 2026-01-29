@@ -15,20 +15,28 @@ sap.ui.define([
         _onObjectMatched: function (oEvent) {
             var oUserModel = this.getOwnerComponent().getModel("user");
             if (!oUserModel) {
-                // If no user model, redirect back to login (safety measure)
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
                 oRouter.navTo("RouteLogin");
                 return;
             }
 
             var sEmployeeId = oUserModel.getProperty("/EmployeeId");
-            var oTable = this.getView().byId("idIncidentTable");
-            var oBinding = oTable.getBinding("items");
+            var oModel = this.getOwnerComponent().getModel();
+            var that = this;
 
-            if (oBinding) {
-                var oFilter = new Filter("EmployeeId", FilterOperator.EQ, sEmployeeId);
-                oBinding.filter([oFilter]);
-            }
+            this.getView().setBusy(true);
+            oModel.read("/INCIDENTSet", {
+                filters: [new Filter("EmployeeId", FilterOperator.EQ, sEmployeeId)],
+                success: function (oData) {
+                    this.getView().setBusy(false);
+                    var oLocalModel = new sap.ui.model.json.JSONModel(oData.results);
+                    this.getView().setModel(oLocalModel, "incidentModel");
+                }.bind(this),
+                error: function (oError) {
+                    this.getView().setBusy(false);
+                    sap.m.MessageToast.show("Failed to fetch incidents");
+                }.bind(this)
+            });
         },
 
         onNavBack: function () {
