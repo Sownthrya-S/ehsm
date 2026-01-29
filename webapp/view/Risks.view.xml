@@ -39,14 +39,14 @@
                 <items>
                     <ColumnListItem>
                         <cells>
-                            <Text text="{RiskId}" />
-                            <Text text="{Plant}" />
-                            <Text text="{RiskDescription}" />
-                            <Text text="{RiskCategory}" />
-                            <ObjectStatus text="{RiskSeverity}" state="{path: 'RiskSeverity', formatter: '.formatSeverity'}" />
-                            <Text text="{Likelihood}" />
-                            <Text text="{MitigationMeasures}" />
-                            <Text text="{path: 'RiskIdentificationDate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'yyyy-MM-dd' }}" />
+                            <Text text="{riskModel>RiskId}" />
+                            <Text text="{riskModel>Plant}" />
+                            <Text text="{riskModel>RiskDescription}" />
+                            <Text text="{riskModel>RiskCategory}" />
+                            <ObjectStatus text="{riskModel>RiskSeverity}" state="{path: 'riskModel>RiskSeverity', formatter: '.formatSeverity'}" />
+                            <Text text="{riskModel>Likelihood}" />
+                            <Text text="{riskModel>MitigationMeasures}" />
+                            <Text text="{path: 'riskModel>RiskIdentificationDate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'yyyy-MM-dd' }}" />
                         </cells>
                     </ColumnListItem>
                 </items>

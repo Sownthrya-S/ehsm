@@ -36,13 +36,13 @@
                 <items>
                     <ColumnListItem>
                         <cells>
-                            <Text text="{IncidentId}" />
-                            <Text text="{Plant}" />
-                            <Text text="{IncidentDescription}" />
-                            <Text text="{IncidentCategory}" />
-                            <ObjectStatus text="{IncidentPriority}" state="{path: 'IncidentPriority', formatter: '.formatPriority'}" />
-                            <ObjectStatus text="{IncidentStatus}" state="{path: 'IncidentStatus', formatter: '.formatStatus'}" />
-                            <Text text="{path: 'IncidentDate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'yyyy-MM-dd' }}" />
+                            <Text text="{incidentModel>IncidentId}" />
+                            <Text text="{incidentModel>Plant}" />
+                            <Text text="{incidentModel>IncidentDescription}" />
+                            <Text text="{incidentModel>IncidentCategory}" />
+                            <ObjectStatus text="{incidentModel>IncidentPriority}" state="{path: 'incidentModel>IncidentPriority', formatter: '.formatPriority'}" />
+                            <ObjectStatus text="{incidentModel>IncidentStatus}" state="{path: 'incidentModel>IncidentStatus', formatter: '.formatStatus'}" />
+                            <Text text="{path: 'incidentModel>IncidentDate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'yyyy-MM-dd' }}" />
                         </cells>
                     </ColumnListItem>
                 </items>
